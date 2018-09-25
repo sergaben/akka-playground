@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0" xmlns:e="http://ant.apache.org/ivy/extra">
+	<info organisation="com.typesafe.akka.samples"
+		module="akka-sample-main-scala$sbt_2.12"
+		revision="HEAD+20180925-2011"
+		status="integration"
+		publication="20180925201107"
+	/>
+	<configurations>
+		<conf name="compile" visibility="public" description=""/>
+		<conf name="runtime" visibility="public" description="" extends="compile"/>
+		<conf name="test" visibility="public" description="" extends="runtime"/>
+		<conf name="provided" visibility="public" description=""/>
+		<conf name="optional" visibility="public" description=""/>
+	</configurations>
+	<publications>
+	</publications>
+	<dependencies>
+		<dependency org="org.scala-sbt" name="sbt" rev="1.2.1" conf="compile->default(compile)"/>
+		<dependency org="com.dwijnand" name="sbt-dynver" rev="3.0.0" conf="compile->default(compile)" scalaVersion="2.12" sbtVersion="1.0"/>
+	</dependencies>
+</ivy-module>
