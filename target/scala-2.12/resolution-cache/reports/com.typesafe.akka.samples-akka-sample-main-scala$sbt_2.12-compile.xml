@@ -4,15 +4,15 @@
 	<info
 		organisation="com.typesafe.akka.samples"
 		module="akka-sample-main-scala$sbt_2.12"
-		revision="HEAD+20180925-2011"
+		revision="bfc5c1e1+20180926-1334"
 		conf="compile"
 		confs="compile, runtime, test, provided, optional"
-		date="20180925201107"/>
+		date="20180926133415"/>
 	<dependencies>
 		<module organisation="com.dwijnand" name="sbt-dynver">
 			<revision name="3.0.0" status="release" pubdate="20180316171048" resolver="sbt-chain" artresolver="sbt-chain" extra-scalaVersion="2.12" extra-sbtVersion="1.0" downloaded="false" searched="false" default="false" conf="compile, default(compile)" position="81">
 				<metadata-artifact status="no" details="" size="2980" time="0" location="C:\Users\sergaben\.ivy2\cache\scala_2.12\sbt_1.0\com.dwijnand\sbt-dynver\ivy-3.0.0.xml" searched="false" origin-is-local="false" origin-location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.dwijnand/sbt-dynver/scala_2.12/sbt_1.0/3.0.0/ivys/ivy.xml"/>
-				<caller organisation="com.typesafe.akka.samples" name="akka-sample-main-scala$sbt_2.12" conf="compile" rev="3.0.0" rev-constraint-default="3.0.0" rev-constraint-dynamic="3.0.0" callerrev="HEAD+20180925-2011" extra-scalaVersion="2.12" extra-sbtVersion="1.0"/>
+				<caller organisation="com.typesafe.akka.samples" name="akka-sample-main-scala$sbt_2.12" conf="compile" rev="3.0.0" rev-constraint-default="3.0.0" rev-constraint-dynamic="3.0.0" callerrev="bfc5c1e1+20180926-1334" extra-scalaVersion="2.12" extra-sbtVersion="1.0"/>
 				<artifacts>
 				</artifacts>
 			</revision>
@@ -21,7 +21,7 @@
 			<revision name="1.2.1" status="release" pubdate="20180807002342" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/sbt/sbt" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="0">
 				<license name="BSD New" url="https://github.com/sbt/sbt/blob/0.13/LICENSE"/>
 				<metadata-artifact status="no" details="" size="3262" time="0" location="C:\Users\sergaben\.ivy2\cache\org.scala-sbt\sbt\ivy-1.2.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/sbt/1.2.1/sbt-1.2.1.pom"/>
-				<caller organisation="com.typesafe.akka.samples" name="akka-sample-main-scala$sbt_2.12" conf="compile" rev="1.2.1" rev-constraint-default="1.2.1" rev-constraint-dynamic="1.2.1" callerrev="HEAD+20180925-2011"/>
+				<caller organisation="com.typesafe.akka.samples" name="akka-sample-main-scala$sbt_2.12" conf="compile" rev="1.2.1" rev-constraint-default="1.2.1" rev-constraint-dynamic="1.2.1" callerrev="bfc5c1e1+20180926-1334"/>
 				<artifacts>
 				</artifacts>
 			</revision>

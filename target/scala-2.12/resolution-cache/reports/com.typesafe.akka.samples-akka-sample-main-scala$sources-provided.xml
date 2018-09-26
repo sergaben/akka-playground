@@ -4,10 +4,10 @@
 	<info
 		organisation="com.typesafe.akka.samples"
 		module="akka-sample-main-scala$sources"
-		revision="HEAD+20180925-2011"
+		revision="bfc5c1e1+20180926-1334"
 		conf="provided"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool"
-		date="20180925201112"/>
+		date="20180926133419"/>
 	<dependencies>
 	</dependencies>
 </ivy-report>
