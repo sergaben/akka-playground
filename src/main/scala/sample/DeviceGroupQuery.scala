@@ -10,6 +10,8 @@ import scala.concurrent.duration.FiniteDuration
   * @author sergaben on 27/09/2018.
   *
   */
+
+// TODO - Finish the device group query
 object DeviceGroupQuery{
 
   case object CollectionTimeout
@@ -53,7 +55,7 @@ class DeviceGroupQuery(
       actorToDeviceId.keySet
     )
   }
-  // this function will take care of the messages sent to this actor but not directly as it returns a function Receive which will take care of it
+  // this function will take care of the messages sent to this actor but not directly as it returns a function `Receive` which will take care of it
   def waitingForReplies(repliesSoFar: Map[String, DeviceGroup.TemperatureReading], stillWaiting: Set[ActorRef]): Receive ={
     case Device.RespondTemperature(0, valueOption) =>
       val deviceActor = sender()
@@ -75,4 +77,24 @@ class DeviceGroupQuery(
       requester ! DeviceGroup.RespondAllTemperatures(requestId, repliesSoFar ++ timedOutReplies)
       context.stop(self)
   }
+
+  def receivedResponse(
+                        deviceActor: ActorRef,
+                        reading: DeviceGroup.TemperatureReading,
+                        stillWaiting: Set[ActorRef],
+                        repliesSoFar: Map[String, DeviceGroup.TemperatureReading]): Unit = {
+      context.unwatch(deviceActor)
+      val deviceId = actorToDeviceId(deviceActor)
+      val newStillWaiting = stillWaiting - deviceActor
+
+      val newRepliesSoFar = repliesSoFar + (deviceId -> reading)
+      if (newStillWaiting.isEmpty){ // if there are no more actors we send all the responses to the original sender and stop the current actor
+        requester ! DeviceGroup.RespondAllTemperatures(requestId, newRepliesSoFar)
+        context.stop(self)
+      }else{ // Otherwise, we called waitingForReplies to do the process all over again so we can get responses for every device.
+        context.become(waitingForReplies(newRepliesSoFar, newStillWaiting))
+      }
+
+  }
+
 }

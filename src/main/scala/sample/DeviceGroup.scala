@@ -1,10 +1,10 @@
 package sample
 
 import akka.actor.{Actor, ActorLogging, ActorRef, Props, Terminated}
-import sample.DeviceGroup.{ReplyDeviceList, RequestDeviceList}
+import scala.concurrent.duration._
 import sample.DeviceManager.RequestTrackDevice
 
-//TODO - finish akka exercise
+
 
 object DeviceGroup{
 
@@ -28,6 +28,8 @@ object DeviceGroup{
 }
 
 class DeviceGroup(groupId: String) extends Actor with ActorLogging{
+
+  import DeviceGroup._
 
   var deviceIdToActor = Map.empty[String, ActorRef]
   var actorToDeviceId = Map.empty[ActorRef, String]
@@ -59,6 +61,13 @@ class DeviceGroup(groupId: String) extends Actor with ActorLogging{
       log.info("Device actor for {} has been terminated", deviceId)
       actorToDeviceId -= deviceActor
       deviceIdToActor -= deviceId
+    case RequestAllTemperatures(requestId) =>
+      context.actorOf(DeviceGroupQuery.props(
+        actorToDeviceId = actorToDeviceId,
+        requestId = requestId,
+        requester = sender(),
+        3.seconds
+      ))
   }
 
 }
